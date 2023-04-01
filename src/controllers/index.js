@@ -1,5 +1,6 @@
+//const  conexion  =require( './db.js')
 exports.getAll = (req, res) => {
-  req.getConnection((err, conn) => {
+ req.getConnection((err, conn) => {
     if (err) return res.send(err);
 
     conn.query(`SELECT * FROM employees`, (err, result) => {
@@ -8,8 +9,15 @@ exports.getAll = (req, res) => {
       res.json(result);
     });
   });
+ /* let sql = `select * from users`
+  conexion.query(sql, (err, rows, fields) => {
+      if (err) throw err;
+      else {
+          res.json(rows)
+      }
+  })*/
 };
-
+/*
 exports.getOne = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
@@ -68,4 +76,4 @@ exports.deleteItem = (req, res) => {
       }
     );
   });
-};
+};*/
